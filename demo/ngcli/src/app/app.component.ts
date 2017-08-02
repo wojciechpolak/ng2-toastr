@@ -7,6 +7,8 @@ import {ToastsManager, Toast} from 'ng2-toastr';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title: string = 'Toastr Demo';
+
   constructor(private toastr: ToastsManager, vRef: ViewContainerRef) {
     this.toastr.setRootViewContainerRef(vRef);
   }
