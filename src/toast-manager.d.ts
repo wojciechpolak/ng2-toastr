@@ -1,7 +1,7 @@
-import { ComponentRef, ApplicationRef, NgZone, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
-import { ToastOptions } from './toast-options';
+import { ApplicationRef, ComponentFactoryResolver, ComponentRef, NgZone, ViewContainerRef } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Toast } from './toast';
-import { Observable } from 'rxjs/Observable';
+import { ToastOptions } from './toast-options';
 export declare class ToastsManager {
     private componentFactoryResolver;
     private ngZone;

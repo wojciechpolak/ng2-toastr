@@ -1,9 +1,9 @@
-import { ChangeDetectorRef, NgZone, OnDestroy, AnimationTransitionEvent } from '@angular/core';
+import { AnimationEvent } from '@angular/animations';
+import { ChangeDetectorRef, NgZone, OnDestroy } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
 import { Toast } from './toast';
 import { ToastOptions } from './toast-options';
-import { DomSanitizer } from '@angular/platform-browser';
-import 'rxjs/add/operator/first';
-import { Observable } from 'rxjs/Observable';
 export declare class ToastContainer implements OnDestroy {
     private sanitizer;
     private cdr;
@@ -29,7 +29,7 @@ export declare class ToastContainer implements OnDestroy {
     clicked(toast: Toast): void;
     anyToast(): boolean;
     findToast(toastId: number): Toast | void;
-    onAnimationEnd(event: AnimationTransitionEvent): void;
+    onAnimationEnd(event: AnimationEvent): void;
     private _ngExit();
     ngOnDestroy(): void;
 }

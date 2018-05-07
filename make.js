@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 'use strict';
 
 /*eslint no-console: 0, no-sync: 0*/
@@ -21,9 +22,17 @@ console.log(targetFolder)
 async.waterfall([
   cleanBundlesFolder,
   getSystemJsBundleConfig,
-  buildSystemJs({minify: false, sourceMaps: true, mangle: false}),
+  buildSystemJs({
+    minify: false,
+    sourceMaps: true,
+    mangle: false
+  }),
   getSystemJsBundleConfig,
-  buildSystemJs({minify: true, sourceMaps: true, mangle: false}),
+  buildSystemJs({
+    minify: true,
+    sourceMaps: true,
+    mangle: false
+  }),
   gzipSystemJsBundle
 ], err => {
   if (err) {
@@ -43,16 +52,26 @@ function getSystemJsBundleConfig(cb) {
       '@angular': path.resolve('node_modules/@angular'),
       rxjs: path.resolve('node_modules/rxjs')
     },
+    packages: {
+      "rxjs": {
+        main: "Rx.js",
+        defaultExtension: "js"
+      }
+    },
     paths: {
       '*': '*.js'
     }
   };
 
   config.meta = ['@angular', 'rxjs'].reduce((memo, currentValue) => {
-    memo[path.resolve(`node_modules/${currentValue}/*`)] = {build: false};
+    memo[path.resolve(`node_modules/${currentValue}/*`)] = {
+      build: false
+    };
     return memo;
   }, {});
-  config.meta.moment = {build: false};
+  config.meta.moment = {
+    build: false
+  };
   console.log(config.meta)
   return cb(null, config);
 }
@@ -91,7 +110,9 @@ function gzipSystemJsBundle(cb) {
   return async.eachSeries(files, (file, gzipcb) => {
     process.nextTick(() => {
       console.log('Gzipping ', file);
-      const gzip = zlib.createGzip({level: 9});
+      const gzip = zlib.createGzip({
+        level: 9
+      });
       const inp = fs.createReadStream(file);
       const out = fs.createWriteStream(`${file}.gz`);
 
