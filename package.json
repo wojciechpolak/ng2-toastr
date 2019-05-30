@@ -1,6 +1,6 @@
 {
   "name": "ng2-toastr",
-  "version": "6.0.0",
+  "version": "6.0.1-20190530",
   "description": "bootstrap style of toast for modern angular",
   "main": "ng2-toastr.js",
   "typings": "ng2-toastr.d.ts",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PointInside/ng2-toastr.git"
+    "url": "git+https://github.com/wojciechpolak/ng2-toastr.git"
   },
   "keywords": [
     "toast",
@@ -31,9 +31,9 @@
   "author": "Derek Shi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PointInside/ng2-toastr/issues"
+    "url": "https://github.com/wojciechpolak/ng2-toastr/issues"
   },
-  "homepage": "https://github.com/PointInside/ng2-toastr#readme",
+  "homepage": "https://github.com/wojciechpolak/ng2-toastr#readme",
   "devDependencies": {
     "@angular/common": "6.0.0",
     "@angular/compiler": "6.0.0",

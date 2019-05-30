@@ -21,7 +21,7 @@
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.2.0",
     "zone.js": "^0.7.7",
-    "ng2-toastr": "PointInside/ng2-toastr#dev"
+    "ng2-toastr": "wojciechpolak/ng2-toastr#dev"
   },
   "devDependencies": {
     "typescript": "^2.2.0",

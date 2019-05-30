@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Toast } from './toast';
 import { ToastOptions } from './toast-options';
 export declare class ToastContainer implements OnDestroy {
-    sanitizer;
+    sanitizer: DomSanitizer;
     private cdr;
     private _zone;
     position: string;
