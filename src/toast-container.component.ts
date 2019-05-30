@@ -110,7 +110,7 @@ export class ToastContainer implements OnDestroy {
     private _onEnter: Subject<any> = new Subject();
     private _onExit: Subject<any> = new Subject();
 
-    constructor(private sanitizer: DomSanitizer,
+    constructor(public sanitizer: DomSanitizer,
         private cdr: ChangeDetectorRef,
         private _zone: NgZone,
         options: ToastOptions) {
