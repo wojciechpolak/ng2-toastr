@@ -17,7 +17,7 @@ export declare class ToastsManager {
     show(toast: Toast, options?: Object): Promise<Toast>;
     createTimeout(toast: Toast): any;
     setupToast(toast: Toast, options?: any): Toast;
-    private _onToastClicked(toast);
+    private _onToastClicked;
     dismissToast(toast: Toast): void;
     clearToast(toast: Toast): void;
     clearAllToasts(): void;

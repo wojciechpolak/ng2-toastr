@@ -29,6 +29,16 @@ System.registerDynamic("ng2-toastr/src/toast-container.component", ["@angular/an
 
     var global = this || self,
         GLOBAL = global;
+    var __decorate = exports && exports.__decorate || function (decorators, target, key, desc) {
+        var c = arguments.length,
+            r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+            d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = exports && exports.__metadata || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
     Object.defineProperty(exports, "__esModule", { value: true });
     var animations_1 = $__require("@angular/animations");
     var core_1 = $__require("@angular/core");
@@ -134,43 +144,39 @@ System.registerDynamic("ng2-toastr/src/toast-container.component", ["@angular/an
         ToastContainer.prototype.ngOnDestroy = function () {
             this._ngExit();
         };
-        ToastContainer.decorators = [{ type: core_1.Component, args: [{
-                selector: 'toast-container',
-                template: "\n    <div #toastContainer id=\"toast-container\" [style.position]=\"position\" class=\"{{positionClass}}\">\n      <div *ngFor=\"let toast of toasts\" [@inOut]=\"animate\" (@inOut.done)=\"onAnimationEnd($event)\" class=\"toast toast-{{toast.type}}\"\n      (click)=\"clicked(toast)\">\n        <div class=\"toast-close-button\" *ngIf=\"toast.config.showCloseButton\" (click)=\"removeToast(toast)\">&times;\n        </div>\n        <div *ngIf=\"toast.title\" class=\"{{toast.config.titleClass || titleClass}}\">{{toast.title}}</div>\n        <div [ngSwitch]=\"toast.config.enableHTML\">\n          <span *ngSwitchCase=\"true\" class=\"{{toast.config.messageClass || messageClass}}\" [innerHTML]=\"sanitizer.bypassSecurityTrustHtml(toast.message)\"></span>\n          <span *ngSwitchDefault class=\"{{toast.config.messageClass || messageClass}}\">{{toast.message}}</span>\n        </div>\n      </div>\n    </div>\n    ",
-                animations: [animations_1.trigger('inOut', [animations_1.state('flyRight, flyLeft', animations_1.style({ opacity: 1, transform: 'translateX(0)' })), animations_1.state('fade', animations_1.style({ opacity: 1 })), animations_1.state('slideDown, slideUp', animations_1.style({ opacity: 1, transform: 'translateY(0)' })), animations_1.transition('void => flyRight', [animations_1.style({
-                    opacity: 0,
-                    transform: 'translateX(100%)'
-                }), animations_1.animate('0.2s ease-in')]), animations_1.transition('flyRight => void', [animations_1.animate('0.2s 10ms ease-out', animations_1.style({
-                    opacity: 0,
-                    transform: 'translateX(100%)'
-                }))]), animations_1.transition('void => flyLeft', [animations_1.style({
-                    opacity: 0,
-                    transform: 'translateX(-100%)'
-                }), animations_1.animate('0.2s ease-in')]), animations_1.transition('flyLeft => void', [animations_1.animate('0.2s 10ms ease-out', animations_1.style({
-                    opacity: 0,
-                    transform: 'translateX(-100%)'
-                }))]), animations_1.transition('void => fade', [animations_1.style({
-                    opacity: 0
-                }), animations_1.animate('0.3s ease-in')]), animations_1.transition('fade => void', [animations_1.animate('0.3s 10ms ease-out', animations_1.style({
-                    opacity: 0
-                }))]), animations_1.transition('void => slideDown', [animations_1.style({
-                    opacity: 0,
-                    transform: 'translateY(-200%)'
-                }), animations_1.animate('0.3s ease-in')]), animations_1.transition('slideDown => void', [animations_1.animate('0.3s 10ms ease-out', animations_1.style({
-                    opacity: 0,
-                    transform: 'translateY(-200%)'
-                }))]), animations_1.transition('void => slideUp', [animations_1.style({
-                    opacity: 0,
-                    transform: 'translateY(200%)'
-                }), animations_1.animate('0.3s ease-in')]), animations_1.transition('slideUp => void', [animations_1.animate('0.3s 10ms ease-out', animations_1.style({
-                    opacity: 0,
-                    transform: 'translateY(200%)'
-                }))])])]
-            }] }];
-        /** @nocollapse */
-        ToastContainer.ctorParameters = function () {
-            return [{ type: platform_browser_1.DomSanitizer }, { type: core_1.ChangeDetectorRef }, { type: core_1.NgZone }, { type: toast_options_1.ToastOptions }];
-        };
+        ToastContainer = __decorate([core_1.Component({
+            selector: 'toast-container',
+            template: "\n    <div #toastContainer id=\"toast-container\" [style.position]=\"position\" class=\"{{positionClass}}\">\n      <div *ngFor=\"let toast of toasts\" [@inOut]=\"animate\" (@inOut.done)=\"onAnimationEnd($event)\" class=\"toast toast-{{toast.type}}\"\n      (click)=\"clicked(toast)\">\n        <div class=\"toast-close-button\" *ngIf=\"toast.config.showCloseButton\" (click)=\"removeToast(toast)\">&times;\n        </div>\n        <div *ngIf=\"toast.title\" class=\"{{toast.config.titleClass || titleClass}}\">{{toast.title}}</div>\n        <div [ngSwitch]=\"toast.config.enableHTML\">\n          <span *ngSwitchCase=\"true\" class=\"{{toast.config.messageClass || messageClass}}\" [innerHTML]=\"sanitizer.bypassSecurityTrustHtml(toast.message)\"></span>\n          <span *ngSwitchDefault class=\"{{toast.config.messageClass || messageClass}}\">{{toast.message}}</span>\n        </div>\n      </div>\n    </div>\n    ",
+            animations: [animations_1.trigger('inOut', [animations_1.state('flyRight, flyLeft', animations_1.style({ opacity: 1, transform: 'translateX(0)' })), animations_1.state('fade', animations_1.style({ opacity: 1 })), animations_1.state('slideDown, slideUp', animations_1.style({ opacity: 1, transform: 'translateY(0)' })), animations_1.transition('void => flyRight', [animations_1.style({
+                opacity: 0,
+                transform: 'translateX(100%)'
+            }), animations_1.animate('0.2s ease-in')]), animations_1.transition('flyRight => void', [animations_1.animate('0.2s 10ms ease-out', animations_1.style({
+                opacity: 0,
+                transform: 'translateX(100%)'
+            }))]), animations_1.transition('void => flyLeft', [animations_1.style({
+                opacity: 0,
+                transform: 'translateX(-100%)'
+            }), animations_1.animate('0.2s ease-in')]), animations_1.transition('flyLeft => void', [animations_1.animate('0.2s 10ms ease-out', animations_1.style({
+                opacity: 0,
+                transform: 'translateX(-100%)'
+            }))]), animations_1.transition('void => fade', [animations_1.style({
+                opacity: 0
+            }), animations_1.animate('0.3s ease-in')]), animations_1.transition('fade => void', [animations_1.animate('0.3s 10ms ease-out', animations_1.style({
+                opacity: 0
+            }))]), animations_1.transition('void => slideDown', [animations_1.style({
+                opacity: 0,
+                transform: 'translateY(-200%)'
+            }), animations_1.animate('0.3s ease-in')]), animations_1.transition('slideDown => void', [animations_1.animate('0.3s 10ms ease-out', animations_1.style({
+                opacity: 0,
+                transform: 'translateY(-200%)'
+            }))]), animations_1.transition('void => slideUp', [animations_1.style({
+                opacity: 0,
+                transform: 'translateY(200%)'
+            }), animations_1.animate('0.3s ease-in')]), animations_1.transition('slideUp => void', [animations_1.animate('0.3s 10ms ease-out', animations_1.style({
+                opacity: 0,
+                transform: 'translateY(200%)'
+            }))])])]
+        }), __metadata("design:paramtypes", [platform_browser_1.DomSanitizer, core_1.ChangeDetectorRef, core_1.NgZone, toast_options_1.ToastOptions])], ToastContainer);
         return ToastContainer;
     }();
     exports.ToastContainer = ToastContainer;
@@ -181,6 +187,16 @@ System.registerDynamic("ng2-toastr/src/toast-manager", ["@angular/core", "rxjs",
 
     var global = this || self,
         GLOBAL = global;
+    var __decorate = exports && exports.__decorate || function (decorators, target, key, desc) {
+        var c = arguments.length,
+            r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+            d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = exports && exports.__metadata || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
     Object.defineProperty(exports, "__esModule", { value: true });
     var core_1 = $__require("@angular/core");
     var rxjs_1 = $__require("rxjs");
@@ -308,19 +324,12 @@ System.registerDynamic("ng2-toastr/src/toast-manager", ["@angular/core", "rxjs",
             return this.show(toast, options);
         };
         // allow user define custom background color and image
-        // allow user define custom background color and image
-        ToastsManager.prototype.custom =
-        // allow user define custom background color and image
-        function (message, title, options) {
+        ToastsManager.prototype.custom = function (message, title, options) {
             var data = options && options.data ? options.data : null;
             var toast = new toast_1.Toast('custom', message, title, data);
             return this.show(toast, options);
         };
-        ToastsManager.decorators = [{ type: core_1.Injectable }];
-        /** @nocollapse */
-        ToastsManager.ctorParameters = function () {
-            return [{ type: core_1.ComponentFactoryResolver }, { type: core_1.NgZone }, { type: core_1.ApplicationRef }, { type: toast_options_1.ToastOptions }];
-        };
+        ToastsManager = __decorate([core_1.Injectable(), __metadata("design:paramtypes", [core_1.ComponentFactoryResolver, core_1.NgZone, core_1.ApplicationRef, toast_options_1.ToastOptions])], ToastsManager);
         return ToastsManager;
     }();
     exports.ToastsManager = ToastsManager;
@@ -331,6 +340,16 @@ System.registerDynamic("ng2-toastr/src/toast-options", ["@angular/core"], true, 
 
     var global = this || self,
         GLOBAL = global;
+    var __decorate = exports && exports.__decorate || function (decorators, target, key, desc) {
+        var c = arguments.length,
+            r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+            d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = exports && exports.__metadata || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
     Object.defineProperty(exports, "__esModule", { value: true });
     var core_1 = $__require("@angular/core");
     var ToastOptions = /** @class */function () {
@@ -342,16 +361,12 @@ System.registerDynamic("ng2-toastr/src/toast-options", ["@angular/core"], true, 
             // override-able properties
             this.toastLife = 5000;
             this.enableHTML = false;
-            this.dismiss = 'auto';
+            this.dismiss = 'auto'; // 'auto' | 'click' | 'controlled'
             this.messageClass = 'toast-message';
             this.titleClass = 'toast-title';
             this.showCloseButton = false;
         }
-        ToastOptions.decorators = [{ type: core_1.Injectable }];
-        /** @nocollapse */
-        ToastOptions.ctorParameters = function () {
-            return [];
-        };
+        ToastOptions = __decorate([core_1.Injectable(), __metadata("design:paramtypes", [])], ToastOptions);
         return ToastOptions;
     }();
     exports.ToastOptions = ToastOptions;
@@ -362,6 +377,13 @@ System.registerDynamic("ng2-toastr/src/toast.module", ["@angular/core", "@angula
 
     var global = this || self,
         GLOBAL = global;
+    var __decorate = exports && exports.__decorate || function (decorators, target, key, desc) {
+        var c = arguments.length,
+            r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+            d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
     Object.defineProperty(exports, "__esModule", { value: true });
     var core_1 = $__require("@angular/core");
     var common_1 = $__require("@angular/common");
@@ -370,18 +392,20 @@ System.registerDynamic("ng2-toastr/src/toast.module", ["@angular/core", "@angula
     var toast_options_1 = $__require("./toast-options");
     var ToastModule = /** @class */function () {
         function ToastModule() {}
+        ToastModule_1 = ToastModule;
         ToastModule.forRoot = function () {
             return {
-                ngModule: ToastModule,
+                ngModule: ToastModule_1,
                 providers: [toast_manager_1.ToastsManager, toast_options_1.ToastOptions]
             };
         };
-        ToastModule.decorators = [{ type: core_1.NgModule, args: [{
-                imports: [common_1.CommonModule],
-                declarations: [toast_container_component_1.ToastContainer],
-                exports: [toast_container_component_1.ToastContainer],
-                entryComponents: [toast_container_component_1.ToastContainer]
-            }] }];
+        var ToastModule_1;
+        ToastModule = ToastModule_1 = __decorate([core_1.NgModule({
+            imports: [common_1.CommonModule],
+            declarations: [toast_container_component_1.ToastContainer],
+            exports: [toast_container_component_1.ToastContainer],
+            entryComponents: [toast_container_component_1.ToastContainer]
+        })], ToastModule);
         return ToastModule;
     }();
     exports.ToastModule = ToastModule;

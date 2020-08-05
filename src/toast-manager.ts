@@ -70,7 +70,7 @@ export class ToastsManager {
     }
 
     createTimeout(toast: Toast): any {
-        let task: number;
+        let task;
         this.ngZone.runOutsideAngular(() => {
             task = setTimeout(() => this.ngZone.run(() => this.clearToast(toast)),
                 toast.config.toastLife);

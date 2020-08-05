@@ -1,4 +1,13 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var animations_1 = require("@angular/animations");
 var core_1 = require("@angular/core");
@@ -108,89 +117,86 @@ var ToastContainer = /** @class */ (function () {
     ToastContainer.prototype.ngOnDestroy = function () {
         this._ngExit();
     };
-    ToastContainer.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'toast-container',
-                    template: "\n    <div #toastContainer id=\"toast-container\" [style.position]=\"position\" class=\"{{positionClass}}\">\n      <div *ngFor=\"let toast of toasts\" [@inOut]=\"animate\" (@inOut.done)=\"onAnimationEnd($event)\" class=\"toast toast-{{toast.type}}\"\n      (click)=\"clicked(toast)\">\n        <div class=\"toast-close-button\" *ngIf=\"toast.config.showCloseButton\" (click)=\"removeToast(toast)\">&times;\n        </div>\n        <div *ngIf=\"toast.title\" class=\"{{toast.config.titleClass || titleClass}}\">{{toast.title}}</div>\n        <div [ngSwitch]=\"toast.config.enableHTML\">\n          <span *ngSwitchCase=\"true\" class=\"{{toast.config.messageClass || messageClass}}\" [innerHTML]=\"sanitizer.bypassSecurityTrustHtml(toast.message)\"></span>\n          <span *ngSwitchDefault class=\"{{toast.config.messageClass || messageClass}}\">{{toast.message}}</span>\n        </div>\n      </div>\n    </div>\n    ",
-                    animations: [
-                        animations_1.trigger('inOut', [
-                            animations_1.state('flyRight, flyLeft', animations_1.style({ opacity: 1, transform: 'translateX(0)' })),
-                            animations_1.state('fade', animations_1.style({ opacity: 1 })),
-                            animations_1.state('slideDown, slideUp', animations_1.style({ opacity: 1, transform: 'translateY(0)' })),
-                            animations_1.transition('void => flyRight', [
-                                animations_1.style({
-                                    opacity: 0,
-                                    transform: 'translateX(100%)'
-                                }),
-                                animations_1.animate('0.2s ease-in')
-                            ]),
-                            animations_1.transition('flyRight => void', [
-                                animations_1.animate('0.2s 10ms ease-out', animations_1.style({
-                                    opacity: 0,
-                                    transform: 'translateX(100%)'
-                                }))
-                            ]),
-                            animations_1.transition('void => flyLeft', [
-                                animations_1.style({
-                                    opacity: 0,
-                                    transform: 'translateX(-100%)'
-                                }),
-                                animations_1.animate('0.2s ease-in')
-                            ]),
-                            animations_1.transition('flyLeft => void', [
-                                animations_1.animate('0.2s 10ms ease-out', animations_1.style({
-                                    opacity: 0,
-                                    transform: 'translateX(-100%)'
-                                }))
-                            ]),
-                            animations_1.transition('void => fade', [
-                                animations_1.style({
-                                    opacity: 0,
-                                }),
-                                animations_1.animate('0.3s ease-in')
-                            ]),
-                            animations_1.transition('fade => void', [
-                                animations_1.animate('0.3s 10ms ease-out', animations_1.style({
-                                    opacity: 0,
-                                }))
-                            ]),
-                            animations_1.transition('void => slideDown', [
-                                animations_1.style({
-                                    opacity: 0,
-                                    transform: 'translateY(-200%)'
-                                }),
-                                animations_1.animate('0.3s ease-in')
-                            ]),
-                            animations_1.transition('slideDown => void', [
-                                animations_1.animate('0.3s 10ms ease-out', animations_1.style({
-                                    opacity: 0,
-                                    transform: 'translateY(-200%)'
-                                }))
-                            ]),
-                            animations_1.transition('void => slideUp', [
-                                animations_1.style({
-                                    opacity: 0,
-                                    transform: 'translateY(200%)'
-                                }),
-                                animations_1.animate('0.3s ease-in')
-                            ]),
-                            animations_1.transition('slideUp => void', [
-                                animations_1.animate('0.3s 10ms ease-out', animations_1.style({
-                                    opacity: 0,
-                                    transform: 'translateY(200%)'
-                                }))
-                            ]),
-                        ]),
-                    ],
-                },] },
-    ];
-    /** @nocollapse */
-    ToastContainer.ctorParameters = function () { return [
-        { type: platform_browser_1.DomSanitizer, },
-        { type: core_1.ChangeDetectorRef, },
-        { type: core_1.NgZone, },
-        { type: toast_options_1.ToastOptions, },
-    ]; };
+    ToastContainer = __decorate([
+        core_1.Component({
+            selector: 'toast-container',
+            template: "\n    <div #toastContainer id=\"toast-container\" [style.position]=\"position\" class=\"{{positionClass}}\">\n      <div *ngFor=\"let toast of toasts\" [@inOut]=\"animate\" (@inOut.done)=\"onAnimationEnd($event)\" class=\"toast toast-{{toast.type}}\"\n      (click)=\"clicked(toast)\">\n        <div class=\"toast-close-button\" *ngIf=\"toast.config.showCloseButton\" (click)=\"removeToast(toast)\">&times;\n        </div>\n        <div *ngIf=\"toast.title\" class=\"{{toast.config.titleClass || titleClass}}\">{{toast.title}}</div>\n        <div [ngSwitch]=\"toast.config.enableHTML\">\n          <span *ngSwitchCase=\"true\" class=\"{{toast.config.messageClass || messageClass}}\" [innerHTML]=\"sanitizer.bypassSecurityTrustHtml(toast.message)\"></span>\n          <span *ngSwitchDefault class=\"{{toast.config.messageClass || messageClass}}\">{{toast.message}}</span>\n        </div>\n      </div>\n    </div>\n    ",
+            animations: [
+                animations_1.trigger('inOut', [
+                    animations_1.state('flyRight, flyLeft', animations_1.style({ opacity: 1, transform: 'translateX(0)' })),
+                    animations_1.state('fade', animations_1.style({ opacity: 1 })),
+                    animations_1.state('slideDown, slideUp', animations_1.style({ opacity: 1, transform: 'translateY(0)' })),
+                    animations_1.transition('void => flyRight', [
+                        animations_1.style({
+                            opacity: 0,
+                            transform: 'translateX(100%)'
+                        }),
+                        animations_1.animate('0.2s ease-in')
+                    ]),
+                    animations_1.transition('flyRight => void', [
+                        animations_1.animate('0.2s 10ms ease-out', animations_1.style({
+                            opacity: 0,
+                            transform: 'translateX(100%)'
+                        }))
+                    ]),
+                    animations_1.transition('void => flyLeft', [
+                        animations_1.style({
+                            opacity: 0,
+                            transform: 'translateX(-100%)'
+                        }),
+                        animations_1.animate('0.2s ease-in')
+                    ]),
+                    animations_1.transition('flyLeft => void', [
+                        animations_1.animate('0.2s 10ms ease-out', animations_1.style({
+                            opacity: 0,
+                            transform: 'translateX(-100%)'
+                        }))
+                    ]),
+                    animations_1.transition('void => fade', [
+                        animations_1.style({
+                            opacity: 0,
+                        }),
+                        animations_1.animate('0.3s ease-in')
+                    ]),
+                    animations_1.transition('fade => void', [
+                        animations_1.animate('0.3s 10ms ease-out', animations_1.style({
+                            opacity: 0,
+                        }))
+                    ]),
+                    animations_1.transition('void => slideDown', [
+                        animations_1.style({
+                            opacity: 0,
+                            transform: 'translateY(-200%)'
+                        }),
+                        animations_1.animate('0.3s ease-in')
+                    ]),
+                    animations_1.transition('slideDown => void', [
+                        animations_1.animate('0.3s 10ms ease-out', animations_1.style({
+                            opacity: 0,
+                            transform: 'translateY(-200%)'
+                        }))
+                    ]),
+                    animations_1.transition('void => slideUp', [
+                        animations_1.style({
+                            opacity: 0,
+                            transform: 'translateY(200%)'
+                        }),
+                        animations_1.animate('0.3s ease-in')
+                    ]),
+                    animations_1.transition('slideUp => void', [
+                        animations_1.animate('0.3s 10ms ease-out', animations_1.style({
+                            opacity: 0,
+                            transform: 'translateY(200%)'
+                        }))
+                    ]),
+                ]),
+            ],
+        }),
+        __metadata("design:paramtypes", [platform_browser_1.DomSanitizer,
+            core_1.ChangeDetectorRef,
+            core_1.NgZone,
+            toast_options_1.ToastOptions])
+    ], ToastContainer);
     return ToastContainer;
 }());
 exports.ToastContainer = ToastContainer;

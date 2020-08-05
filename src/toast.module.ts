@@ -11,7 +11,7 @@ import { ToastOptions } from './toast-options';
     entryComponents: [ToastContainer]
 })
 export class ToastModule {
-    public static forRoot(): ModuleWithProviders {
+    public static forRoot(): ModuleWithProviders<ToastModule> {
         return {
             ngModule: ToastModule,
             providers: [ToastsManager, ToastOptions],

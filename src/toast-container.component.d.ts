@@ -30,6 +30,6 @@ export declare class ToastContainer implements OnDestroy {
     anyToast(): boolean;
     findToast(toastId: number): Toast | void;
     onAnimationEnd(event: AnimationEvent): void;
-    private _ngExit();
+    private _ngExit;
     ngOnDestroy(): void;
 }
